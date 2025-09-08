@@ -1,6 +1,8 @@
+
 // package Lab_05;
 import java.util.Arrays;
-public class Triangle {
+
+public class Triangle implements Cloneable {
 
     private double sideA, sideB, sideC;
     private static int objectCount = 0;
@@ -33,12 +35,12 @@ public class Triangle {
         objectCount++;
     }
 
-    public Triangle(Triangle other) {
-        this.sideA = other.sideA;
-        this.sideB = other.sideB;
-        this.sideC = other.sideC;
-        objectCount++;
-    }
+    // public Triangle(Triangle other) {
+    // this.sideA = other.sideA;
+    // this.sideB = other.sideB;
+    // this.sideC = other.sideC;
+    // objectCount++;
+    // }
 
     public static int ObjectCount() {
         return objectCount;
@@ -73,30 +75,42 @@ public class Triangle {
     }
 
     public boolean isRightAngled() {
-        // A triangle is right angled only when the square and sum of two sides is equal to sum of square of other side.
+        // A triangle is right angled only when the square and sum of two sides is equal
+        // to sum of square of other side.
         // Pythagoras Theorem says: H^2=P^2+B^2
         // For Sorting we will use array
 
-        double[] side={sideA,sideB,sideC};
+        double[] side = { sideA, sideB, sideC };
         Arrays.sort(side);
 
-        double p=side[0];
-        double b=side[1];
-        double h=side[2];
-        
-        if ((p*p + b*b) ==(h*h)) {
+        double p = side[0];
+        double b = side[1];
+        double h = side[2];
+
+        if ((p * p + b * b) == (h * h)) {
 
             return true;
-        }
-        else{
+        } else {
 
-            return false; 
+            return false;
         }
     }
 
     @Override
-    public String toString(){
-        String sides="\nside A : "+sideA+"\nside B : "+sideB+"\nside C : "+sideC;
-        return sides; 
+    public String toString() {
+        String sides = "\nside A : " + sideA + "\nside B : " + sideB + "\nside C : " + sideC;
+        return sides;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            objectCount++;
+            return super.clone();
+
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+            return null;
+        }
     }
 }
