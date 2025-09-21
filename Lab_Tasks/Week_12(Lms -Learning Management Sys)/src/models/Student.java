@@ -1,0 +1,52 @@
+package models;
+
+public class Student {
+    
+    private String name;
+    private String seat_no;
+
+    //Default Constructor::
+
+    public Student(){
+        // this.name="";
+        // this.seat_no="";
+    }
+
+    //Parametrized Constructor::
+
+    public Student(String Name,String Seat_No){
+        this.name=Name;
+        this.seat_no=Seat_No;
+    }
+
+    //Copy Constructor::
+    public Student(Student other){
+        this.name=other.name;
+        this.seat_no=other.seat_no;
+
+    }
+
+
+    //GETTERS AND SETTERS::
+
+    public void setName(String n){
+        this.name=n;
+    }
+
+    public void setSeatNo(String Seat_No){
+        this.seat_no=Seat_No;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getSeatNo(){
+        return seat_no;
+    }
+
+    @Override
+    public String toString(){
+        return "Name is "+name+" and Seat Number is "+seat_no;
+    }    
+}
