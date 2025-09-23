@@ -1,6 +1,6 @@
 package models;
 
-public class Student {
+public class Student implements Cloneable{
     
     private String name;
     private String seat_no;
@@ -43,6 +43,16 @@ public class Student {
 
     public String getSeatNo(){
         return seat_no;
+    }
+
+    @Override
+    public Object clone(){
+        try {
+            return super.clone();
+        } catch (Exception e) {
+            // TODO: handle exception
+            return null;
+        }
     }
 
     @Override
