@@ -45,7 +45,7 @@ public class Student implements Cloneable{
         return seat_no;
     }
 
-    @Override
+    @Override  //this clone is making deep copy of students. 
     public Object clone(){
         try {
             return super.clone();
@@ -57,6 +57,6 @@ public class Student implements Cloneable{
 
     @Override
     public String toString(){
-        return "Name is "+name+" and Seat Number is "+seat_no;
-    }    
+        return " "+name+" "+seat_no;
+    }  
 }

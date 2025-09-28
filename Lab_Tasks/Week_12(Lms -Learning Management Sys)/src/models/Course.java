@@ -5,6 +5,11 @@ public class Course {
     private String name;
     private String code;
 
+    public Course() {
+        this.name = "";
+        this.code = "";
+    }
+
     // Parametrized Constructor
     public Course(String name, String code) {
         this.name = name;
@@ -32,7 +37,16 @@ public class Course {
 
     @Override
     public String toString() {
-        return "The courses are as below: \n"+code + " -- " + name;
+        return "" + code + " -- " + name;
     }
 
+    @Override // this clone is making deep copy.
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (Exception e) {
+            // TODO: handle exception
+            return null;
+        }
+    }
 }
